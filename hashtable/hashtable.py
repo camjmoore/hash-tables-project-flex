@@ -86,7 +86,8 @@ class HashTable:
 
         Implement this.
         """
-        # Your code here
+        hash = self.hash_index(key)
+        self.storage[hash] = HashTableEntry(key, value)
 
     def delete(self, key):
         """
@@ -96,7 +97,11 @@ class HashTable:
 
         Implement this.
         """
-        # Your code here
+        hash = self.hash_index(key)
+        if self.storage[hash] is not None:
+            self.storage[hash] = None
+        else:
+            print("the key could not be found")
 
     def get(self, key):
         """
